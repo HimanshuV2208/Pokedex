@@ -18,8 +18,8 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.security.PrivateKey;
+import java.util.Arrays;
+import java.util.Random;
 
 public class PokemonActivity extends AppCompatActivity {
 
@@ -29,18 +29,30 @@ public class PokemonActivity extends AppCompatActivity {
     private String url;
     private RequestQueue requestQueue;
     private ImageView imageView;
+    private TextView mov1;
+    private TextView mov2;
+    private TextView mov3;
+    private TextView mov4;
+
+    private Random random;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon);
 
+        random = new Random();
+
         url = getIntent().getStringExtra("url");
         nameTextView = findViewById(R.id.pokemon_name);
         numberTextView = findViewById(R.id.pokemon_number);
         type1TxtV = findViewById(R.id.pokemon_type1);
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
         imageView = findViewById(R.id.pokemon_img);
+        mov1 = findViewById(R.id.pokemon_move1);
+        mov2 = findViewById(R.id.pokemon_move2);
+        mov3 = findViewById(R.id.pokemon_move3);
+        mov4 = findViewById(R.id.pokemon_move4);
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         load();
     }
@@ -59,6 +71,7 @@ public class PokemonActivity extends AppCompatActivity {
                             .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"+id+".png")
                             .resize(256, 256).centerCrop().into(imageView);
                     JSONArray types = response.getJSONArray("types");
+                    JSONArray moves = response.getJSONArray("moves");
                     for(int i=0; i<types.length();i++){
                         JSONObject typeEntry = types.getJSONObject(i);
                         int slot = typeEntry.getInt("slot");
@@ -70,6 +83,11 @@ public class PokemonActivity extends AppCompatActivity {
                             String temp = type1TxtV.getText().toString() + " & ";
                             type1TxtV.setText(temp.concat(type));
                         }
+                    }
+                    for (TextView textView : Arrays.asList(mov1, mov2, mov3, mov4)) {
+                        int movNo = random.nextInt(moves.length());
+                        String move = moves.getJSONObject(movNo).getJSONObject("move").getString("name");
+                        textView.setText(move);
                     }
                 } catch (JSONException e) {
                     Log.e("error", "Pokemon JSON error");

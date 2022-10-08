@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/name_placeholder"
             android:textAlignment="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_weight="1.1"
             android:text="Pokemon name : "
             android:textStyle="bold"/>
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/pokemon_name"
             android:textAlignment="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_weight="0.9"/>
 
     </LinearLayout>
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/number_placeholder"
             android:textAlignment="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_weight="1.1"
             android:text="Pokemon number : "
             android:textStyle="bold"/>
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/pokemon_number"
             android:textAlignment="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_weight="0.9"/>
 
     </LinearLayout>
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/type_placeholder"
             android:textAlignment="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_weight="1.1"
             android:text="Pokemon type : "
             android:textStyle="bold"/>
@@ -93,7 +93,115 @@
             android:layout_height="wrap_content"
             android:id="@+id/pokemon_type1"
             android:textAlignment="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
+            android:layout_weight="0.9"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/move1_placeholder"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_weight="1.1"
+            android:text="Pokemon Move 1 : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pokemon_move1"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_weight="0.9"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/move2_placeholder"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_weight="1.1"
+            android:text="Pokemon Move 2 : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pokemon_move2"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_weight="0.9"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/move3_placeholder"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_weight="1.1"
+            android:text="Pokemon Move 3 : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pokemon_move3"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_weight="0.9"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/move4_placeholder"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_weight="1.1"
+            android:text="Pokemon Move 4 : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pokemon_move4"
+            android:textAlignment="center"
+            android:textSize="18sp"
             android:layout_weight="0.9"/>
 
     </LinearLayout>
