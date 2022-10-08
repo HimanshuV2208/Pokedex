@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -12,10 +13,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.security.PrivateKey;
 
 public class PokemonActivity extends AppCompatActivity {
 
@@ -25,6 +29,7 @@ public class PokemonActivity extends AppCompatActivity {
     private TextView type2TxtV;
     private String url;
     private RequestQueue requestQueue;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,7 @@ public class PokemonActivity extends AppCompatActivity {
         type1TxtV = findViewById(R.id.pokemon_type1);
         type2TxtV = findViewById(R.id.pokemon_type2);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+        imageView = findViewById(R.id.pokemon_img);
 
         load();
     }
@@ -49,7 +55,11 @@ public class PokemonActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     nameTextView.setText(response.getString("name"));
-                    numberTextView.setText(String.format("#%03d", response.getInt("id")));
+                    int id = response.getInt("id");
+                    numberTextView.setText(String.format("#%03d", id));
+                    Picasso.get()
+                            .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"+id+".png")
+                            .resize(256, 256).centerCrop().into(imageView);
                     JSONArray types = response.getJSONArray("types");
                     for(int i=0; i<types.length();i++){
                         JSONObject typeEntry = types.getJSONObject(i);

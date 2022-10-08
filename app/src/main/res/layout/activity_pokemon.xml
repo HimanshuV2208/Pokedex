@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".PokemonActivity">
 
+    <ImageView
+        android:id="@+id/pokemon_img"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:layout_marginTop="10dp"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
