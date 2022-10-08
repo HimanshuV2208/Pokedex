@@ -54,7 +54,8 @@ public class PokemonActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    nameTextView.setText(response.getString("name"));
+                    String name = response.getString("name");
+                    nameTextView.setText(name.substring(0,1).toUpperCase()+name.substring(1));
                     int id = response.getInt("id");
                     numberTextView.setText(String.format("#%03d", id));
                     Picasso.get()
