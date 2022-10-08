@@ -13,38 +13,90 @@
         android:layout_height="256dp"
         android:layout_gravity="center"
         android:scaleType="fitXY"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:contentDescription="Pokemon JPG"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/pokemon_name"
-        android:textAlignment="center"
-        android:textSize="18dp"
-        android:paddingTop="10dp" />
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
 
-    <TextView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_placeholder"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_weight="1.1"
+            android:text="Pokemon name : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pokemon_name"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_weight="0.9"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/pokemon_number"
-        android:textAlignment="center"
-        android:textSize="16dp"
-        android:paddingTop="5dp" />
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="10dp">
 
-    <TextView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/number_placeholder"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_weight="1.1"
+            android:text="Pokemon number : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pokemon_number"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_weight="0.9"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/pokemon_type1"
-        android:textAlignment="center"
-        android:textSize="16dp"
-        android:paddingTop="5dp" />
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="10dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/pokemon_type2"
-        android:textAlignment="center"
-        android:textSize="16dp"
-        android:paddingTop="5dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/type_placeholder"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_weight="1.1"
+            android:text="Pokemon type : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pokemon_type1"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_weight="0.9"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

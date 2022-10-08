@@ -26,7 +26,6 @@ public class PokemonActivity extends AppCompatActivity {
     private TextView nameTextView;
     private TextView numberTextView;
     private TextView type1TxtV;
-    private TextView type2TxtV;
     private String url;
     private RequestQueue requestQueue;
     private ImageView imageView;
@@ -40,7 +39,6 @@ public class PokemonActivity extends AppCompatActivity {
         nameTextView = findViewById(R.id.pokemon_name);
         numberTextView = findViewById(R.id.pokemon_number);
         type1TxtV = findViewById(R.id.pokemon_type1);
-        type2TxtV = findViewById(R.id.pokemon_type2);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         imageView = findViewById(R.id.pokemon_img);
 
@@ -48,7 +46,6 @@ public class PokemonActivity extends AppCompatActivity {
     }
 
     public void load(){
-        type2TxtV.setText("");
         type1TxtV.setText("");
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -66,10 +63,12 @@ public class PokemonActivity extends AppCompatActivity {
                         JSONObject typeEntry = types.getJSONObject(i);
                         int slot = typeEntry.getInt("slot");
                         String type = typeEntry.getJSONObject("type").getString("name");
+                        type = type.substring(0, 1).toUpperCase() + type.substring(1);
                         if(slot==1){
                             type1TxtV.setText(type);
                         }else if(slot==2){
-                            type2TxtV.setText(type);
+                            String temp = type1TxtV.getText().toString() + " & ";
+                            type1TxtV.setText(temp.concat(type));
                         }
                     }
                 } catch (JSONException e) {
