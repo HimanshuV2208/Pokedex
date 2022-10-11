@@ -72,17 +72,18 @@ public class PokemonActivity extends AppCompatActivity {
                             .resize(256, 256).centerCrop().into(imageView);
                     JSONArray types = response.getJSONArray("types");
                     JSONArray moves = response.getJSONArray("moves");
+                    String finalType="";
                     for(int i=0; i<types.length();i++){
                         JSONObject typeEntry = types.getJSONObject(i);
                         int slot = typeEntry.getInt("slot");
                         String type = typeEntry.getJSONObject("type").getString("name");
                         type = type.substring(0, 1).toUpperCase() + type.substring(1);
                         if(slot==1){
-                            type1TxtV.setText(type);
+                            finalType = type;
                         }else if(slot==2){
-                            String temp = type1TxtV.getText().toString() + " & ";
-                            type1TxtV.setText(temp.concat(type));
+                            finalType = finalType.concat(" & ".concat(type));
                         }
+                        setTypeText(finalType);
                     }
                     for (TextView textView : Arrays.asList(mov1, mov2, mov3, mov4)) {
                         int movNo = random.nextInt(moves.length());
@@ -101,4 +102,9 @@ public class PokemonActivity extends AppCompatActivity {
         });
         requestQueue.add(request);
     }
+
+    private void setTypeText(String type){
+        type1TxtV.setText(type);
+    }
+
 }
