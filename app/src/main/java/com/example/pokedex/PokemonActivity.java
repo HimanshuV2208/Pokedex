@@ -126,7 +126,7 @@ public class PokemonActivity extends AppCompatActivity {
 
     private BackgroundColorSpan getBackground(String type){
         BackgroundColorSpan backgroundColorSpan;
-        int color = 0, col;
+        int color = 0;
         if(type.equalsIgnoreCase("ghost")) color = R.color.ghost;
         else if(type.equalsIgnoreCase("dragon")) color = R.color.dragon;
         else if(type.equalsIgnoreCase("ice")) color = R.color.ice;

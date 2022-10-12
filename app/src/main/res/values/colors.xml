@@ -22,5 +22,4 @@
     <color name="normal">#c7ca9b</color>
     <color name="water">#4e84e4</color>
     <color name="poison">#741b46</color>
-    <color name="Ghost">@color/ghost</color>
 </resources>
